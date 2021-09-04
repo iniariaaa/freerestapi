@@ -137,15 +137,15 @@ router.get('/cuaca', (req, res) => {
 
 router.get('/spam', (req, res) => {
 	IncreaseCount();
-    const key   = req.query.key
+
     const no    = req.query.no
-    if (!no || !key) {
+    if (!no) {
         res.send({
             code: 403,
-            message: 'Input parameter url and api key.'
+            message: 'Input parameter no'
         })
     } else {
-        Spam(no, key)
+        Spam(no)
             .then(data => {
                 res.send(data)
             })
